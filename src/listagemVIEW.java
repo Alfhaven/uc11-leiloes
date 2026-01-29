@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -204,11 +205,11 @@ public class listagemVIEW extends javax.swing.JFrame {
     private void listarProdutos(){
         try {
             ProdutosDAO produtosdao = new ProdutosDAO();
-            
-            DefaultTableModel model = (DefaultTableModel) listaProdutos.getModel();
-            model.setNumRows(0);
-            
             ArrayList<ProdutosDTO> listagem = produtosdao.listarProdutos();
+            DefaultTableModel model = (DefaultTableModel) listaProdutos.getModel();
+            model.setRowCount(0);
+            
+            
             
             for(int i = 0; i < listagem.size(); i++){
                 model.addRow(new Object[]{
@@ -219,6 +220,7 @@ public class listagemVIEW extends javax.swing.JFrame {
                 });
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Listagem de Produtos com erro.");
         }
     
     }

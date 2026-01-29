@@ -1,5 +1,6 @@
 
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -149,13 +150,13 @@ public class cadastroVIEW extends javax.swing.JFrame {
             String valor = cadastroValor.getText();
             String status = "A Venda";
             produto.setNome(nome);
-            produto.setValor(Integer.parseInt(valor));
+            produto.setValor(Integer.parseInt(cadastroValor.getText()));
             produto.setStatus(status);
             
             ProdutosDAO produtodao = new ProdutosDAO();
             produtodao.cadastrarProduto(produto);
-        } catch (SQLException ex) {
-            System.getLogger(cadastroVIEW.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Informe um valor válido.");
         }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed

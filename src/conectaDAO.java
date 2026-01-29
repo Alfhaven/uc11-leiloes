@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class conectaDAO {
     
-    private static final String URL = "jdbc:mysql://localhost:3306/uc11?serverTimezone=America/Sao_Paulo&useSSL=false&allowPublicKeyRetrieval=true";
+    private static final String URL = "jdbc:mysql://localhost:3306/uc11?useSSL=false";
     private static final String USER = "root";
     private static final String PASSWORD = "147356";
     
